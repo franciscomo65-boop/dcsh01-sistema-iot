@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="2">
+    <title>Monitor Terminal - Sistema IoT</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div id="terminal">
+        <p id="terminal-titulo">usuario@sistema-iot:~$ monitor --live</p>
+        <div id="terminal-lineas">
+            {% for linea in logs %}
+            <p>{{ linea }}</p>
+            {% endfor %}
+            {% if not logs %}
+            <p>Esperando eventos...</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div id="volver">
+        <a id="link-volver" href="/">Volver al panel</a>
+    </div>
+</body>
+</html>

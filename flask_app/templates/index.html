@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="3">
+    <title>Panel de Control - Sistema IoT</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div id="contenedor">
+        <h1 id="titulo">Panel de Control - Sistema IoT</h1>
+
+        <div id="panel-leds">
+            <a id="link-verde-on" href="/led/verde/on">Verde ON</a>
+            <a id="link-verde-off" href="/led/verde/off">Verde OFF</a>
+            <br>
+            <a id="link-amarillo-on" href="/led/amarillo/on">Amarillo ON</a>
+            <a id="link-amarillo-off" href="/led/amarillo/off">Amarillo OFF</a>
+            <br>
+            <a id="link-rojo-on" href="/led/rojo/on">Rojo ON</a>
+            <a id="link-rojo-off" href="/led/rojo/off">Rojo OFF</a>
+        </div>
+
+        <div id="estado-actual">
+            {% if estado %}
+            <p id="texto-estado">
+                Verde: {{ estado.verde }} |
+                Amarillo: {{ estado.amarillo }} |
+                Rojo: {{ estado.rojo }} |
+                Boton presionado: {{ estado.boton }}
+            </p>
+            {% else %}
+            <p id="texto-estado">ESP32 no responde. Verifica IP y conexion de red.</p>
+            {% endif %}
+        </div>
+
+        <div id="enlace-monitor">
+            <a id="link-monitor" href="/monitor">Ver Monitor Estilo Terminal</a>
+        </div>
+    </div>
+</body>
+</html>
