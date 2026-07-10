@@ -1,0 +1,90 @@
+body {
+  background-color: #1c1c1c;
+  font-family: "Courier New", monospace;
+  margin: 0;
+  padding: 40px;
+}
+
+#contenedor {
+  max-width: 600px;
+  margin: 0 auto;
+  color: #e8e8e8;
+}
+
+#titulo {
+  font-size: 24px;
+  color: #4dd08a;
+}
+
+#subtitulo {
+  color: #a0a0a0;
+  margin-bottom: 24px;
+}
+
+#panelBotones {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#tarjeta-rojo, #tarjeta-amarillo, #tarjeta-verde {
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+#btnOn-rojo, #btnOn-amarillo, #btnOn-verde {
+  background-color: #4dd08a;
+  color: #111;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+#btnOff-rojo, #btnOff-amarillo, #btnOff-verde {
+  background-color: #d0504d;
+  color: #111;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+#enlaceMonitor {
+  margin-top: 24px;
+}
+
+#linkMonitor, #linkInicio {
+  color: #4dd08a;
+}
+
+#terminal {
+  background-color: #0d0d0d;
+  color: #4dd08a;
+  font-family: "Courier New", monospace;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 700px;
+  margin: 40px auto;
+  min-height: 300px;
+}
+
+#tituloTerminal {
+  color: #e8e8e8;
+  margin-bottom: 12px;
+}
+
+#lineasTerminal p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+#volverInicio {
+  text-align: center;
+  font-family: "Courier New", monospace;
+}

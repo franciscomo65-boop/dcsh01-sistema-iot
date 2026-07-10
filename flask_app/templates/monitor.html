@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="3">
+  <title>Monitor - Sistema IoT</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body>
+  <div id="terminal">
+    <p id="tituloTerminal">monitor@sistema-iot:~$ tail -f eventos.log</p>
+    <div id="lineasTerminal">
+      {% if eventos %}
+        {% for e in eventos %}
+        <p id="linea-{{ loop.index }}">
+          [{{ e.timestamp }}] {{ e.dispositivo }} - LED {{ e.led }} -> {{ e.estado }}
+        </p>
+        {% endfor %}
+      {% else %}
+        <p id="lineaVacia">(sin eventos registrados todavia)</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <p id="volverInicio">
+    <a href="{{ url_for('index') }}" id="linkInicio">Volver al panel de control</a>
+  </p>
+</body>
+</html>

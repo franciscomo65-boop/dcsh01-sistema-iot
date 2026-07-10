@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel de control - Sistema IoT</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body>
+  <div id="contenedor">
+    <h1 id="titulo">Panel de control</h1>
+    <p id="subtitulo">Activa los indicadores del ESP32 desde aqui</p>
+
+    <div id="panelBotones">
+      {% for led in leds %}
+      <div id="tarjeta-{{ led }}">
+        <p id="nombre-{{ led }}">LED {{ led }}</p>
+        <form action="{{ url_for('activar') }}" method="post" id="form-on-{{ led }}">
+          <input type="hidden" name="led" value="{{ led }}">
+          <input type="hidden" name="estado" value="on">
+          <button type="submit" id="btnOn-{{ led }}">Encender</button>
+        </form>
+        <form action="{{ url_for('activar') }}" method="post" id="form-off-{{ led }}">
+          <input type="hidden" name="led" value="{{ led }}">
+          <input type="hidden" name="estado" value="off">
+          <button type="submit" id="btnOff-{{ led }}">Apagar</button>
+        </form>
+      </div>
+      {% endfor %}
+    </div>
+
+    <p id="enlaceMonitor">
+      <a href="{{ url_for('monitor') }}" id="linkMonitor">Ver monitor del sistema</a>
+    </p>
+  </div>
+</body>
+</html>
